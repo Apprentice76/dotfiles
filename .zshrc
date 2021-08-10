@@ -1,4 +1,4 @@
-# checking script!
+# checking script again!
 # zmodload zsh/zprof
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
