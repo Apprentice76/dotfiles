@@ -1,0 +1,198 @@
+# timezsh()
+# {
+#   shell=${1-$SHELL}
+#   # shell=zsh
+#   for i in $(seq 1 10); do time $shell exit; done
+# }
+clean()
+{
+  egrep -v 'exit|^l.|^l..|vim|\.\.\.|\.\.|^x|^mv|cd|ys|alias|^\\|conf.|^ch|^/|dif|^g.$|^\$|clr|echo|clean' ~/.zsh/.zsh_history > ~/file.tmp && mv ~/file.tmp ~/.zsh/.zsh_history
+}
+
+vc()
+{
+	cd -P -- "$1" &&
+	code "${@:2}" &&
+	cd -
+}
+
+md()
+{
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
+
+gcc()
+{
+	git checkout $1 .
+}
+
+push()
+{
+  git push origin HEAD:$1
+}
+
+gbrd()
+{
+  git push origin :$1
+}
+
+gcmf()
+{
+  git commit -m "$*"
+}
+
+gacf()
+{
+  git add -A && git commit -m "$*"
+}
+
+staf()
+{
+  git stash apply stash@{$1}
+}
+
+stpf()
+{
+  git stash pop stash@{$1}
+}
+
+stdf()
+{
+  git stash drop stash@{$1}
+}
+
+sthf()
+{
+  git stash -u && git stash apply
+}
+
+sthmf()
+{
+  git stash save -u "$*" && stash apply
+}
+
+stmf()
+{
+  git stash save "$*"
+}
+
+stumf()
+{
+  git stash save -u "$*"
+}
+
+# Default to human readable figures
+alias df='df -h'
+alias du='du -h'
+# Interactive operation...
+# alias rm='rm -i'
+# Some shortcuts for different directory listings
+alias ls='ls -hNF --color'                 	# classify files in colour
+alias ll='ls -l'                           	# long list
+alias llx='ll -X'                          	# long list, sorted by ext
+alias llu='ll -U'				# long list, sorted by name
+alias lls='ll -Sr'                         	# long list, sorted by size
+alias la='ls -A'				# long list all
+alias lsp='ls ..'
+alias mkdir='mkdir -p'
+# Custom
+alias alsyn='cat ~/.zsh/.zsh_aliases > ~/.bash/.bash_aliases'
+alias su='sudo'
+alias rm='Recycle'
+alias jsvr='json-server'
+#alias vim='nvim'
+alias vi='vim'
+alias clr='clear'
+alias x='exit'
+alias cra='create-react-app'
+alias _='cd -'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias apt='apt-cyg'
+alias conf='vim ~/.zshrc'
+alias confa='vim ~/.zsh/.zsh_aliases'
+alias confh='vim ~/.zsh/.zsh_history'
+alias confv='vim ~/_vimrc'
+alias confm='vim ~/.minttyrc'
+alias src='source ~/.zshrc; sh ~/Desktop/Misc/term_configs.sh &!; clear'
+# Git commands
+alias gf='git fetch'                                # fetch upstream
+alias gc='git clone'                                # clone git repo
+alias gp='git push'                                 # push to repo
+alias gpu='gp -u'                                     # push to & set upstream
+alias gpl='git pull'                                # fetch & merge
+alias gcm='git commit -m'                           # commit changes
+alias gca='git commit -am'                            # stage modified files & commit
+alias ga='git add'                                  # move to staging
+alias gaa='ga -A'                                     # stage modified & new files
+alias gat='ga .'                                      # stage modified files
+alias gac='gaa && gcm'                                  # stage modified & new files then commit
+alias gcp='gac && gp'                                   # stage modified & new files then commit then push to upstream
+alias gch='git checkout'					                  # switch to existing branch
+                                                    # for checking out commits, use: git checkout `commit_id` .
+alias gcb='gch -b'                                    # create new branch then switch to it
+alias gb='git branch'                               # view local branches
+alias gbr='gb -r'                                     # view remote branches
+alias gba='gb -a'                                     # view all branches
+alias gbm='gb -m'                                     # move/rename branch
+alias gbd='gb -d'                                     # delete merged branch
+alias gbD='gb -D'                                     # force delete branch
+alias gbu='gb -u'                                     # set branch upstream
+alias gmc='git merge'                               # merge (after fetch)
+alias gm='git merge --no-commit'                      # merge without committing
+alias gr='git remote'                               # remote commands
+alias grv='gr -v'                                     # view remotes
+alias grs='gr set-url'                                # set given url with given remote name 
+alias gra='gr add'                                    # add new remote with its url
+alias grd='gr remove'                                 # remove remote
+alias grr='gr rename'                                 # rename remote
+alias gs='git status'                               # view current modifications
+alias gld='git log'                                 # commit/stash history
+alias gl='gld --oneline'                              # short history
+alias gut='git rm -r --cached'                      # untrack files from git
+alias gin='git init'                                # initialize git
+alias auh='gpl --allow-unrelated-histories' 				# only to be used when pulling from new empty remote repo
+alias dif='git diff'                                # diff b/w two branches
+alias sth='git stash'                               # stash file modifications
+alias stm='sth save'                                  # save stash with message($1)
+alias stu='sth -u'                                    # stash untracked files also
+alias stum='sth save -u'                              # give message($1) to stash with untracked files also
+alias sta='sth apply'                                 # apply stash@{`id`}, default most recent
+alias stp='sth pop'                                   # apply stash@{`id`} and delete from stack, default most recent
+alias stl='sth list'                                  # list of stashes
+alias sts='sth show'                                  # diff b/w current branch and stash
+alias stsd='sth show -p'                              # detailed diff
+alias stb='sth branch'                                # create branch with some name($1) from stash@{`id`}($2)
+alias std='sth drop'                                  # drop stash@{`id`}
+alias stc='sth clear'                                 # drop all stashes
+alias gsr='git reset --soft'                        # reset to commit id($1) only, no change in index or WD
+alias gmr='git reset --mixed'                       # reset to commit id($1), clear staging area, i.e, files (modified & new) removed from index
+alias ghr='git reset --hard'                        # reset to commit id($1), clear working directory & staging area too
+alias grbi='git rebase'                             # rebase
+alias grb='grbi -i'                                   # rebase - interactive
+alias grbr='grb --root'                               # rebase from root
+alias grbc='grbi --continue'                          # rebase continue
+alias grba='grbi --abort'                             # rebase abort
+alias rfl='git reflog'                              # command history
+alias acm='git commit --amend -m'                   # amend most recent commit message
+# NPM commands
+alias npr='npm run'
+alias npi='npm install'
+alias npd='npi --save-dev'
+alias nps='npm start'
+alias npu='npm uninstall'
+alias npb='npr build'
+# Yarn commands
+alias ya='yarn add'
+alias yg='yarn global'
+alias yga='yg add'
+alias yad='ya --dev'
+alias yrm='yarn remove'
+alias yi='yarn install'
+alias yl='yarn list'
+alias ys='yarn start'
+alias yb='yarn build'
+alias yr='yarn run'
+alias yu='yarn upgrade'
+alias ycra='yarn create react-app'
