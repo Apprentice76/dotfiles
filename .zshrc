@@ -10,8 +10,8 @@ fi
 
 export ZSH_AUTOSUGGEST_STRATEGY=(
 match_prev_cmd
-completion
 history
+completion
 )
 
 source ~/.zsh/.zsh_aliases

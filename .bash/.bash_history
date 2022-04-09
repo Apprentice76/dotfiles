@@ -213,3 +213,62 @@ date | cut -d' ' -f2-4
 date | awk '{print $2,$3,$4}' | cut -d: -f1-2
 date | cut -d' ' -f2-4 | cut -d: -f1-2
 x
+cmd
+cmd subl
+git clone 'git@github.com:Apprentice76/Chrome-extensions.git'
+alias yad
+./cra-minified.sh
+\rm *.exe
+zsh
+zsh
+cd /
+cd /bin
+clear
+zsh
+zsh
+cd .bash 
+vim .bash_aliases 
+cd ..
+vim .bashrc 
+bash
+dd
+ls
+cd ..
+vim .bashrc 
+vi
+echo $TERM
+zsh
+vim
+vim M.bat 
+ls
+wt --help
+flute --help
+flute
+flute
+date
+date | cut -d' ' -f2-4
+date | awk '{print $2,$3,$4}' | cut -d: -f1-2
+date | cut -d' ' -f2-4 | cut -d: -f1-2
+sh ./test.sh 
+vim exp3i.sh
+mv exp3i.sh exp3ii.sh 
+vim exp3ii.sh
+clr
+bash exp3ii.sh 
+vim exp3ii.sh 
+sh exp3ii.sh 
+bash ./exp3iii.sh 
+chmod u-x exp3iii.sh 
+chmod u+x exp3iii.sh 
+./exp3iii.sh 
+vim exp3iii.sh 
+mv test.sh exp3i.sh
+chmod u+x exp3ii.sh 
+ll
+x
+clr
+cat > exp2i.txt
+cat >> exp2i.txt
+cat exp2i.txt
+nano exp2i.txt
+x
