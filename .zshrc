@@ -54,7 +54,7 @@ print -Pn "\e]0;zsh %~\a" 2>/dev/null
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=magenta"
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit &!
 autoload -Uz clean && clean &!
 zmodload zsh/zpty && zpty &!
 
