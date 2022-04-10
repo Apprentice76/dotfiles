@@ -848,7 +848,7 @@
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n@%m'
   # Default context format (no privileges, no SSH): user@hostname.
 #   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%B%F{123}[ %F{105}savant%F{97} \UF17A %F{134}windows%F{123} ]'
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%B%F{123}[ %F{105}savant%F{97} :: %F{134}windows%F{123} ]'
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
