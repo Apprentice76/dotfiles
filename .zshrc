@@ -33,6 +33,8 @@ SAVEHIST=10000
 HISTCONTROL=ignoreboth:ignorespace
 HISTORY_IGNORE='(jobs *|zpty *|ps *|conf)'
 
+# bindkey "[1;5C" forward-word
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
@@ -54,7 +56,8 @@ print -Pn "\e]0;zsh %~\a" 2>/dev/null
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=magenta"
-autoload -Uz compinit && compinit &!
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+autoload -Uz compinit && compinit
 autoload -Uz clean && clean &!
 zmodload zsh/zpty && zpty &!
 

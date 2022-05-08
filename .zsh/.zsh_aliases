@@ -120,7 +120,7 @@ alias confa='vim ~/.zsh/.zsh_aliases'
 alias confh='vim ~/.zsh/.zsh_history'
 alias confv='vim ~/_vimrc'
 alias confm='vim ~/.minttyrc'
-alias src='source ~/.zshrc'
+alias src='source ~/.zshrc && clear'
 alias upl='nohup bash ~/Desktop/Misc/term_configs.sh > /tmp/foo.out 2>/dev/null < /dev/null &!'
 # Git commands
 alias gf='git fetch'                                # fetch upstream
